@@ -52,4 +52,16 @@ function getDataThisDay(){
     return json_encode($dataThisMonth[$today]);
 }
 
-echo getDataThisDay();
+$value = "";
+if(isset($_GET["action"])){
+    switch($_GET["action"]){
+        case "month":
+            $value = getDataThisMonth();
+            break;
+        case "day":
+            $value = getDataThisDay();
+            break;
+    }
+}
+
+exit($value);
