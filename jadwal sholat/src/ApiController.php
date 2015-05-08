@@ -46,8 +46,10 @@ function getDataThisMonth(){
 }
 
 function getDataThisDay(){
-    $dataThisMonth = getDataThisMonth();
+    $today = date("j") - 1;
+    $dataThisMonth = json_decode(getDataThisMonth(), true);
 
+    return json_encode($dataThisMonth[$today]);
 }
 
-echo getDataThisMonth();
+echo getDataThisDay();
